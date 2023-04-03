@@ -67,7 +67,7 @@ p <- plot_data %>%
     # Labels and Aesthetics
     labs(x = "", y = "",
          title = "The Spread of Daylight Savings",
-         subtitle = str_wrap("Many regions around the globe adopted aaylight savings time between 1916 to 1945. More joined the trend around 1980. Now though, all but North America and Europe have mostly done away with the time change.", 105),
+         subtitle = str_wrap("Many regions around the globe adopted daylight savings time between 1916 to 1945. More joined the trend around 1980. Now though, all but North America and Europe have mostly done away with the time change.", 105),
          caption = "Louis Teitelbaum | #TidyTuesday | Source: IANA tz database, OpenStreetMap") +
     theme_void() +
     scale_y_continuous(limits = c(-75, 90)) + 
