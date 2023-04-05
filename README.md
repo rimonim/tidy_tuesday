@@ -11,3 +11,4 @@ more](https://github.com/rfordatascience/tidytuesday/blob/master/README.md)
 
 ## 2022-12 - Baby Names
 <a href='baby_names.R' target='_blank'><img src="plots/baby_names2.png" align="center"/></a>
+<a href='baby_names.R' target='_blank'><img src="plots/baby_names.png" align="center"/></a>
