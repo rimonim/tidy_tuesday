@@ -8,3 +8,6 @@ more](https://github.com/rfordatascience/tidytuesday/blob/master/README.md)
 
 ## 2023-04 - Time Zones
 <a href='timezones.R' target='_blank'><img src="plots/daylight_savings.png" align="center"/></a>
+
+## 2022-12 - Baby Names
+<a href='baby_names.R' target='_blank'><img src="plots/baby_names2.png" align="center"/></a>
