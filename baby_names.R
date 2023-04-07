@@ -22,7 +22,8 @@ p <- plot_data1 %>%
     guides(color = "none") +
     labs(title = "How Common is \"Too Common\"?",
          subtitle = "The most popular girls names are more popular than the most popular boys names. Not long ago, the reverse was true.",
-         x = "...out of 1000 babies", y = "Rank") +
+         x = "...out of 1000 babies", y = "Rank",
+         caption = "Louis Teitelbaum | #TidyTuesday | Source: `babynames` R package") +
     facet_wrap(~year, nrow = 1) + 
     scale_y_reverse(breaks = 1:10,
                     minor_breaks = NULL,
@@ -36,7 +37,8 @@ p <- plot_data1 %>%
                                     hjust = 0.6),
           plot.subtitle = element_text(family = "Avenir Next", colour = "#67000d", size = 12,
                                        hjust = 0.6, lineheight = unit(1, "in")),
-          plot.caption = element_text(family = "Avenir Next", colour = "#67000d", size = 12),
+          plot.caption = element_text(family = "Avenir Next", colour = "#67000d", size = 8,
+                                      margin = margin(t = .1, unit = "in")),
           plot.margin = margin(t = .2, b = .2, l = .2, r = .2, unit = "in"),
           axis.title = element_text(family = "Avenir Next", colour = "#67000d", size = 10),
           axis.text = element_text(family = "Avenir Next", colour = "#67000d", size = 10),
@@ -66,7 +68,8 @@ p2 <- plot_data2 %>% mutate(sex = if_else(sex == "M", "Boys", "Girls")) %>%
   theme_minimal() +
   labs(title = "Popular Names are Getting Less Popular",
        subtitle = "In 1880 the most popular baby names were very popular. In 2017 nobody wants to name their baby something so cliche.",
-       x = "...out of 1000 babies", y = "Rank") +
+       x = "...out of 1000 babies", y = "Rank",
+       caption = "Louis Teitelbaum | #TidyTuesday | Source: `babynames` R package") +
   scale_y_reverse(breaks = 1:10,
                   minor_breaks = NULL,
                   limits = c(10.5, .5)) +
@@ -79,7 +82,8 @@ p2 <- plot_data2 %>% mutate(sex = if_else(sex == "M", "Boys", "Girls")) %>%
                                   hjust = 0.6),
         plot.subtitle = element_text(family = "Avenir Next", colour = "#67000d", size = 12,
                                      hjust = 0.6, lineheight = unit(1, "in")),
-        plot.caption = element_text(family = "Avenir Next", colour = "#67000d", size = 12),
+        plot.caption = element_text(family = "Avenir Next", colour = "#67000d", size = 8,
+                                    margin = margin(l = .1, unit = "in"), hjust = 1.13),
         plot.margin = margin(t = .2, b = .2, l = .2, r = .2, unit = "in"),
         axis.title = element_text(family = "Avenir Next", colour = "#67000d", size = 10),
         axis.text = element_text(family = "Avenir Next", colour = "#67000d", size = 10),
