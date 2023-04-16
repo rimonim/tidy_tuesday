@@ -15,19 +15,21 @@ plot_data1 <- babynames %>%
 p <- plot_data1 %>% 
   group_by(year, rank) %>% 
   mutate(most_popular = prop == max(prop),
-         x = if_else(most_popular, prop + .005, prop - .005)) %>% 
+         x = if_else(most_popular, prop + .005, prop - .005),
+         sex = factor(if_else(sex != "M", "Girl Name", "Boy Name"), levels = c("Girl Name", "Boy Name"))) %>% 
   ggplot(aes(prop, rank, label = name, color = sex)) +
     geom_point(aes(color = sex), size = 11, alpha = .5) +
     theme_minimal() +
-    guides(color = "none") +
     labs(title = "How Common is \"Too Common\"?",
-         subtitle = "The most popular girls names are more popular than the most popular boys names. Not long ago, the reverse was true.",
-         x = "...out of 1000 babies", y = "Rank",
+         subtitle = "The most popular girl names are more popular than the most popular boy names. Not long ago, the reverse was true.",
+         x = "...out of 1000 babies", y = "",
+         color = "",
          caption = "Louis Teitelbaum | #TidyTuesday | Source: `babynames` R package") +
     facet_wrap(~year, nrow = 1) + 
-    scale_y_reverse(breaks = 1:10,
+    scale_y_reverse(breaks = 1:5,
                     minor_breaks = NULL,
-                    limits = c(5.5, .5)) +
+                    limits = c(5.5, .5),
+                    labels = c('Most Popular', '2nd', '3rd', '4th', '5th')) +
     scale_x_continuous(breaks = c(.006, .008, .01, .012, .014),
                        minor_breaks = NULL,
                        labels = c("6", "8", "10", "12", "14"),
@@ -38,15 +40,16 @@ p <- plot_data1 %>%
           plot.subtitle = element_text(family = "Avenir Next", colour = "#67000d", size = 12,
                                        hjust = 0.6, lineheight = unit(1, "in")),
           plot.caption = element_text(family = "Avenir Next", colour = "#67000d", size = 8,
-                                      margin = margin(t = .1, unit = "in")),
+                                      hjust = 1.2, margin = margin(t = .1, unit = "in")),
           plot.margin = margin(t = .2, b = .2, l = .2, r = .2, unit = "in"),
+          legend.text = element_text(family = "Avenir Next", colour = "#67000d", size = 10),
           axis.title = element_text(family = "Avenir Next", colour = "#67000d", size = 10),
           axis.text = element_text(family = "Avenir Next", colour = "#67000d", size = 10),
           strip.text = element_text(family = "Avenir Next", colour = "#67000d", size = 10))
 
 # Export
 ggsave(plot = p, filename = file.path("plots/", "baby_names.png"), 
-       dpi = 500, width = 32, height = 10, bg = "white", units = "cm")
+       dpi = 500, width = 34, height = 10, bg = "white", units = "cm")
 
 
 
